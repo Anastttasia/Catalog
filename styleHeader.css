@@ -130,7 +130,8 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) { */
+  @media screen and (min-width: 200px) and (max-width:400px){
 
   .bgMobileNavBar {
     width: 100%;

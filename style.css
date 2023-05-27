@@ -242,7 +242,8 @@ html {
   }
 }
 
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) { */
+  @media screen and (min-width: 200px) and (max-width:400px){
   .categoryContainer {
     border-radius: 0;
     padding: 0.5rem 1.5rem 4rem 1.5rem;
