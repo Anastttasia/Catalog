@@ -28,15 +28,21 @@
   justify-content: flex-start;
   align-items: center;
   z-index: 2;
-  margin-bottom: 60px;
   padding: 2px;
-  font-family: 'Montserrat', sans-serif;
+}
+
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
 }
 
 .containerMenu {
   display: flex;
   flex-flow: row nowrap;
-  margin-left: 100px;
+  margin-left: 10rem;
 }
 
 .buttonNavgation {
@@ -64,6 +70,40 @@
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
+.buttomDarkLightView {
+  width: 40px;
+  height: 40px;
+  margin-right: 10rem;
+  border-radius: 50%;
+  color: #0c0912;
+  background-color: aliceblue;
+  border: 1px solid #333333;
+  transition: 0.5s linear;
+}
+
+.buttomDarkLightView:hover {
+  color: white;
+  background-color: #333333;
+  border: 1px solid aliceblue;
+}
+
+.ButtonViewOff {
+  display: none;
+}
+
+.ButtonLightViewOn {
+  display: block;
+}
+
+@media screen and (max-width: 1020px) {
+  .containerMenu {
+    margin-left: 5rem;
+  }
+
+  .buttomDarkLightView {
+    margin-right: 5rem;
+  }
+}
 
 @media screen and (max-width: 760px) {
 
@@ -110,6 +150,7 @@
     width: calc(100vw - 30%);
     height: 100%;
     background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -117,13 +158,16 @@
     transform: translateX(100%);
     transition: all 1s;
   }
+  .navBarMobileDark {
+    background-color: #333333;
+  }
 
   .showNavBarMobile {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 
-  .containerMenu {
+  .headerContainer {
     display: none;
   }
 
@@ -149,7 +193,6 @@
 
   .navSlotHeader {
     padding: 0.75rem;
-    color: #0c0912;
   }
 
   .header {
@@ -158,8 +201,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: aliceblue;
-    margin: 0;
     padding-right: 1rem
   }
 
@@ -174,6 +215,12 @@
     border: none;
   }
 
+  .navgationLinkDark {
+    text-decoration: none;
+    color: white;
+    background: transparent;
+    border: none;
+  }
   .nav {
     display: none;
   }
@@ -185,7 +232,7 @@
     border-bottom: none;
     margin: 0;
     font-size: 18px;
-    color: black;
+    padding: 0.75rem;
   }
 
   .buttonNavgation:hover {

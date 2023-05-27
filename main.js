@@ -1,256 +1,23 @@
-let navigation = document.getElementsByClassName('buttonNavgation');
-let contentElements = document.getElementsByClassName('categoryContainer');
-let outDate = document.getElementById('outDate');
+import data from "./constants.js";
 
-const data = {
-    descriptions: {
-        door: [
-            "Применение: для всех типов помещений ",
-            "Комплектация: петли - 2 шт, замок",
-            "Материал покрытия: пленка ПВХ",
-            "Тип наличников, коробки и доборов: стандартные, телескопические",
-            "Конструктивные особенности: установленный замок"
-        ],
-        lamp: [
-            "Крепление: крюк, тип потолка: бетонный",
-            "Тип цоколя: E27",
-            "Площадь освещения: 24 кв.м",
-            "Материал основания: металл",
-            "Материал плафона: стекло"
-        ],
-        vase: [
-            "Материал: керамика",
-            "Форма: фигурная",
-            "Размещение: пол, стол",
-            "Ширина / Диаметр: 18,5 см",
-            "Высота: 16,5 см"
-        ],
-    },
-    doors: [
-        {
-            "image": "./image/door/4001160_1_ddbf.jpg",
-            "price": 9799,
-            "discountPrice": 13799,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4004859_1_c9da.jpg",
-            "price": 6499,
-            "discountPrice": 10699,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4019907_1_2001.jpg",
-            "price": 7799,
-            "discountPrice": 11799,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4330668_1_e5ac.jpg",
-            "price": 5499,
-            "discountPrice": 10499,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4628822_1_67a6.jpg",
-            "price": 6799,
-            "discountPrice": 9799,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4628996_1_78f8.jpg",
-            "price": 4599,
-            "discountPrice": 6599,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4694055_1_0710.jpg",
-            "price": 3699,
-            "discountPrice": 5799,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4694238_1_d284.jpg",
-            "price": 9999,
-            "discountPrice": 10999,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4694451_1_fbfc.jpg",
-            "price": 8899,
-            "discountPrice": 11899,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4720389_1_847c.jpg",
-            "price": 6299,
-            "discountPrice": 9299,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4720710_1_fc28.jpg",
-            "price": 10299,
-            "discountPrice": 15299,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/door/4787453_1_393f.jpg",
-            "price": 8899,
-            "discountPrice": 12899,
-            "date": "01.01.2022",
-        },
-    ],
-    lamps:
-        [
-            {
-                "image": "./image/lamp/4143624_1_3dd2.jpg",
-                "price": 9799,
-                "discountPrice": 13799,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4375895_1_64ab.jpg",
-                "price": 6499,
-                "discountPrice": 10699,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4376034_1_2362.jpg",
-                "price": 11799,
-                "discountPrice": 13299,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4376398_1_4350.jpg",
-                "price": 8499,
-                "discountPrice": 10499,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4376745_1_a61d.jpg",
-                "price": 11299,
-                "discountPrice": 17299,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4579793_1_8896.jpg",
-                "price": 5499,
-                "discountPrice": 10499,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4579926_1_6822.jpg",
-                "price": 9799,
-                "discountPrice": 12799,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4807152_1_f40f.jpg",
-                "price": 7399,
-                "discountPrice": 13399,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4807186_1_b7e9.jpg",
-                "price": 8899,
-                "discountPrice": 11899,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4808317_1_dc36.jpg",
-                "price": 5499,
-                "discountPrice": 15599,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4809489_1_982a.jpg",
-                "price": 13999,
-                "discountPrice": 19999,
-                "date": "01.01.2022",
-            },
-            {
-                "image": "./image/lamp/4809901_1_02a6.jpg",
-                "price": 11199,
-                "discountPrice": 15599,
-                "date": "01.01.2022",
-            },
-        ],
-    vase: [
-        {
-            "image": "./image/vase/4574075_1_d844.jpg",
-            "price": 1499,
-            "discountPrice": 2699,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4704631_1_c399.jpg",
-            "price": 999,
-            "discountPrice": 2699,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4727905_1_96c4.jpg",
-            "price": 699,
-            "discountPrice": 1199,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4728135_1_1a11.jpg",
-            "price": 2499,
-            "discountPrice": 3199,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4728457_1_61e4.jpg",
-            "price": 1299,
-            "discountPrice": 3399,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4728473_1_3d90.jpg",
-            "price": 1099,
-            "discountPrice": 2099,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4799615_1_ab54.jpg",
-            "price": 2099,
-            "discountPrice": 3399,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4799821_1_7ae3.jpg",
-            "price": 3899,
-            "discountPrice": 4899,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4799920_1_a86a.jpg",
-            "price": 3499,
-            "discountPrice": 4699,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/4799979_1_f894.jpg",
-            "price": 1499,
-            "discountPrice": 1999,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/5060210_1_2572.jpg",
-            "price": 999,
-            "discountPrice": 1399,
-            "date": "01.01.2022",
-        },
-        {
-            "image": "./image/vase/5060219_1_8d04.jpg",
-            "price": 1399,
-            "discountPrice": 1799,
-            "date": "01.01.2022",
-        },
+//mobile navBar
+let closeModal = document.getElementById('closeModal');
+let openModal = document.getElementById('openModal');
+let bgMobileNavBar = document.getElementById('bgMobileNavBar');
+let navBarMobileBlock = document.getElementById('mobileNavBar');
 
-    ]
-};
+openModal.addEventListener('click', function openNavBar() {
+    bgMobileNavBar.classList.add('bgMobileNavBar');
+    navBarMobileBlock.classList.add('showNavBarMobile');
+    openModal.style.display = 'none';
+});
+
+closeModal.addEventListener('click', function closeNavBar() {
+    bgMobileNavBar.classList.remove('bgMobileNavBar');
+    navBarMobileBlock.classList.remove('showNavBarMobile');
+    navBarMobileBlock.classList.add('closeMobileNavBar');
+    openModal.style.display = '';
+});
 
 function createCard(itemDescription, data) {
     const templateCard = document.createElement('div');
@@ -282,6 +49,17 @@ function createCard(itemDescription, data) {
 
     productInformation.appendChild(ulDescriptions);
 
+    const dateTemplate = document.createElement('p');
+    dateTemplate.textContent = 'Дaтa добавления:';
+    dateTemplate.classList.add('dateTemplate');
+    productInformation.appendChild(dateTemplate);
+
+    const date = document.createElement('p');
+    date.textContent = getDayInfo(data.date);
+    date.classList.add('dateStyle');
+
+    productInformation.appendChild(date);
+
     const containerPrice = document.createElement('div');
     containerPrice.classList.add('containerPrice');
     const priceElem = document.createElement('p');
@@ -294,24 +72,28 @@ function createCard(itemDescription, data) {
     containerPrice.appendChild(priceElem)
     containerPrice.appendChild(discountPriceElem)
 
-    const buttonBuy = document.createElement('div');
-    buttonBuy.innerHTML =
-        `
-         <button class="buttonBuy">
-            <img src="./image/icon/icon-cart.svg" style="width: 15px; height: 15px; padding-right: 10px;">
-            Add to Cart
-        </button>
-        `;
+    const buttonBuy = document.createElement('button');
+    buttonBuy.classList.add('buttonBuy');
 
+    const image = document.createElement('img');
+    image.src = "./image/icon/icon-cart.svg";
+    image.style.width = "15px"
+    image.style.height = "15px";
+    image.style.paddingRight = "10px";
+    buttonBuy.appendChild(image);
+
+    const buttonText = document.createElement('p');
+    buttonText.innerText = "Add to Cart"
+
+    buttonBuy.appendChild(buttonText);
+    buttonBuy.addEventListener('click', function () {
+        const modalWindow = document.getElementById('modalBuyWindow');
+        modalWindow.classList.remove('modalBuyWindowClose');
+        modalWindow.classList.add('modalBuyWindow');
+    });
 
     productInformation.appendChild(containerPrice);
     productInformation.appendChild(buttonBuy);
-
-    // buttonBuy.addEventListener('click', function(){
-    //     const modalWindow = document.getElementById('modalBuyWindow');
-    //     modalWindow.classList.remove('modalBuyWindowClose');
-    //     modalWindow.classList.add('modalBuyWindow');
-    // });
 
     templateCard.appendChild(imageContainer);
     templateCard.appendChild(productInformation);
@@ -322,89 +104,76 @@ let containerForCardsDoors = document.getElementById('containerForCardsDoors');
 let containerForCardsLamps = document.getElementById('containerForCardsLamps');
 let containerForCardsVase = document.getElementById('containerForCardsVase');
 
-for (let j = 0; j < 3; j++) {
-    if (j == 0) {
-        for (let i = 0; i < data.doors.length; i++) {
-            containerForCardsDoors.appendChild(createCard(data.descriptions.door, data.doors[i]));
-        }
-    }
-    if (j == 1) {
-        for (let i = 0; i < data.lamps.length; i++) {
-            containerForCardsLamps.appendChild(createCard(data.descriptions.lamp, data.lamps[i]));
-        }
-    }
-    if (j == 2) {
-        for (let i = 0; i < data.vase.length; i++) {
-            containerForCardsVase.appendChild(createCard(data.descriptions.vase, data.vase[i]));
-        }
-    }
 
+for (let i = 0; i < data.doors.length; i++) {
+    containerForCardsDoors.appendChild(createCard(data.descriptions.door, data.doors[i]));
 }
 
-//modal window
-// buttonBuy.addEventListener('click', function(){
-//     const modalWindow = document.getElementById('modalBuyWindow');
-//     modalWindow.classList.remove('modalBuyWindowClose');
-//     modalWindow.classList.add('modalBuyWindow');
-// });
+for (let i = 0; i < data.lamps.length; i++) {
+    containerForCardsLamps.appendChild(createCard(data.descriptions.lamp, data.lamps[i]));
+}
 
+for (let i = 0; i < data.vase.length; i++) {
+    containerForCardsVase.appendChild(createCard(data.descriptions.vase, data.vase[i]));
+}
+
+//Modal window
 let buttonModalWindowClose = document.getElementById('buttonModalWindowClose');
-buttonModalWindowClose.addEventListener('click', closeModalWindow);
-
-let buttonModalWindowBuy = document.getElementById('buttonModalWindowBuy');
-buttonModalWindowBuy.addEventListener('click', function () {
-    closeModalWindow();
-    alert('Спасибо за покупку!');
-});
-
 function closeModalWindow() {
     const modalWindow = document.getElementById('modalBuyWindow');
     modalWindow.classList.remove('modalBuyWindow');
     modalWindow.classList.add('modalBuyWindowClose');
-}
+};
+
+buttonModalWindowClose.addEventListener('click', closeModalWindow);
 
 //Date
+function getDayInfo(dateString) {
+    if (!dateString) return;
+    const date = new Date(dateString)
+    const nameDay = getNameDay(date.getDay())
+    const numweek = getNumWeek(date)
+    const nameMonth = getMonthName(date.getMonth())
 
-// const getDate = () =>{
-//     let date = new Date();
-//     alert (date);
-
-// }
-
-// function randomDate(start, end) {
-//     return new Date(start.getTime() 
-//             + Math.random() * (end.getTime() - start.getTime()));
-//   }
-
-// let myDate  = randomDate(new Date(2012, 0, 1), new Date());
-
-// outDate.append(myDate.getFullYear() + '-'
-//     + ('0' + (myDate.getMonth() + 1)).slice(-2) 
-//     + '-' + ('0' + myDate.getDate()).slice(-2)
-//     + ' '
-//     +  ('0' + myDate.getHours()).slice(-2)
-//     + ':' + ('0' + myDate.getMinutes()).slice(-2)
-//     + ':' + ('0' + myDate.getSeconds()).slice(-2) 
-// );
-
-//mobile navBar
-function openNavBar() {
-    let bgMobileNavBar = document.getElementById('bgMobileNavBar');
-    bgMobileNavBar.classList.add('bgMobileNavBar');
-    let navBarMobileBlock = document.getElementById('mobileNavBar');
-    navBarMobileBlock.classList.add('showNavBarMobile');
-    let openModalBlock = document.getElementById('openModal');
-    console.log(openModalBlock.style.display)
-    openModalBlock.style.display = 'none';
+    return `${nameDay}, ${numweek} неделя ${nameMonth} ${date.getFullYear()} года`
 }
-function closeNavBar() {
-    let bgMobileNavBar = document.getElementById('bgMobileNavBar');
-    bgMobileNavBar.classList.remove('bgMobileNavBar');
-    let navBarMobileBlock = document.getElementById('mobileNavBar');
-    navBarMobileBlock.classList.remove('showNavBarMobile');
-    navBarMobileBlock.classList.add('closeMobileNavBar');
-    let openModalBlock = document.getElementById('openModal');
-    openModalBlock.style.display = '';
+
+function getNameDay(numDay) {
+    switch (numDay) {
+        case 0: return 'Воскресенье'
+        case 1: return 'Понедельник'
+        case 2: return 'Вторник'
+        case 3: return 'Среда'
+        case 4: return 'Четверг'
+        case 5: return 'Пятница'
+        case 6: return 'Суббота'
+        default: return 'День недели'
+    }
+}
+
+function getNumWeek(date) {
+    var onejan = new Date(date.getFullYear(), 0, 1);
+    var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    var dayOfYear = ((today - onejan + 86400000) / 86400000);
+    return Math.ceil(dayOfYear / 7)
+};
+
+function getMonthName(numMonth) {
+    switch (numMonth) {
+        case 0: return 'Января'
+        case 1: return 'Февраля'
+        case 2: return 'Марта'
+        case 3: return 'Апреля'
+        case 4: return 'Мая'
+        case 5: return 'Июня'
+        case 6: return 'Июля'
+        case 7: return 'Авгуса'
+        case 8: return 'Сентября'
+        case 9: return 'Октября'
+        case 10: return 'Ноября'
+        case 11: return 'Декабря'
+        default: return 'Месяца'
+    }
 }
 
 //button appearance back to top of page
@@ -412,9 +181,82 @@ let scroll = document.querySelector('.buttonUpPage');
 window.addEventListener('scroll', function () {
     scroll.classList.toggle("active", window.scrollY > 300);
 });
-function scrollTop() {
-    window.scroll({
-        top: 0,
-        behavior: 'smooth'
-    })
+
+function addDarkTheme() {
+    const main = document.querySelector('.mainContainer');
+    const cards = document.querySelectorAll('.card');
+    main.classList.add('mainContainerDark');
+    cards.forEach((card) => {
+        card.classList.add('cardDark');
+    });
 }
+
+function removeDarkTheme() {
+    const main = document.querySelector('.mainContainer');
+    const cards = document.querySelectorAll('.card');
+    main.classList.remove('mainContainerDark')
+    cards.forEach((card) => {
+        card.classList.remove('cardDark');
+    });
+}
+
+
+//button chenges the View
+let buttomDarkLightView = document.getElementById('buttomDarkLightView');
+let buttonDarkView = document.getElementById('buttonDarkView');
+let buttonlightView = document.getElementById('buttonlightView');
+
+buttomDarkLightView.addEventListener('click', function (e) {
+    const color = e.currentTarget.dataset.color;
+
+    if (color === 'white') {
+        e.currentTarget.dataset.color = 'black';
+        buttonlightView.classList.remove('ButtonViewOff');
+        buttonlightView.classList.add('ButtonLightViewOn');
+        buttonDarkView.classList.remove('ButtonLightViewOn');
+        buttonDarkView.classList.add('ButtonViewOff');
+        addDarkTheme();
+    }
+    else if (color === 'black') {
+        e.currentTarget.dataset.color = 'white';
+        buttonDarkView.classList.remove('ButtonViewOff');
+        buttonDarkView.classList.add('ButtonLightViewOn');
+        buttonlightView.classList.remove('ButtonLightViewOn');
+        buttonlightView.classList.add('ButtonViewOff');
+        removeDarkTheme();
+    }
+});
+
+//button chenges the view mobile
+let buttomDarkLightViewMobile = document.getElementById('buttomDarkLightViewMobile');
+let buttonDarkViewMobile = document.getElementById('buttonDarkViewMobile');
+let buttonlightViewMobile = document.getElementById('buttonlightViewMobile');
+
+buttomDarkLightViewMobile.addEventListener('click', function (e) {
+    const color = e.currentTarget.dataset.color;
+
+    if (color === 'white') {
+        e.currentTarget.dataset.color = 'black';
+        buttonlightViewMobile.classList.remove('ButtonViewOff');
+        buttonlightViewMobile.classList.add('ButtonLightViewOn');
+        buttonDarkViewMobile.classList.remove('ButtonLightViewOn');
+        buttonDarkViewMobile.classList.add('ButtonViewOff');
+        addDarkTheme();
+    }
+    else if (color === 'black') {
+        e.currentTarget.dataset.color = 'white';
+        buttonDarkViewMobile.classList.remove('ButtonViewOff');
+        buttonDarkViewMobile.classList.add('ButtonLightViewOn');
+        buttonlightViewMobile.classList.remove('ButtonLightViewOn');
+        buttonlightViewMobile.classList.add('ButtonViewOff');
+        removeDarkTheme();
+    }
+});
+
+const form = document.querySelector('#myForm');
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const { count, color, text } = e.target
+    alert(`Спасибо за покупку ${count.value} ${color.value} ${text.value}!`)
+    closeModalWindow();
+};

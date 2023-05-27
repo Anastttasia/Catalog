@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleHeader.css">
     <link rel="stylesheet" href="modalWindow.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <title>Catalog</title>
 </head>
 
@@ -15,49 +16,60 @@
 
     <div id="bgMobileNavBar"></div>
     <div id="mobileNavBar" class="navBarMobile">
-        <button class="buttonNavBar buttonClose" type="submit" onclick="closeNavBar()">
-            <svg width="32" height="31" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#00001A" fill-rule="evenodd">
-                    <path d="m2.919.297 28.284 28.284-2.122 2.122L.797 2.419z" />
-                    <path d="M.797 28.581 29.081.297l2.122 2.122L2.919 30.703z" />
-                </g>
-            </svg>
+        <button id="closeModal" class="buttonNavBar buttonClose" type="submit">
+            <img src="./image/icon/icon-menu-close.svg" alt="closeMenu">
         </button>
         <div class="ulNavBarMobile">
-            <span class="navSlotHeader">
-                <a href="#Door" class="buttonNavgation navgationLink">Двери</a>
+            <span class="buttonNavgation">
+                <a id="navgationLinkMob" href="#Door" class=" navgationLink">Двери</a>
             </span>
-            <span class="navSlotHeader">
-                <a href="#Lamp" class="buttonNavgation navgationLink">Люстры</a>
+            <span class="buttonNavgation">
+                <a id="navgationLinkMob" href="#Lamp" class=" navgationLink">Люстры</a>
             </span>
-            <span class="navSlotHeader">
-                <a href="#Vase" class="buttonNavgation navgationLink">Вазы</a>
+            <span class="buttonNavgation">
+                <a id="navgationLinkMob" href="#Vase" class=" navgationLink">Вазы</a>
+            </span>
+            <span class="buttonNavgation">
+                <button id="buttomDarkLightViewMobile" class="buttomDarkLightView" data-color="white">
+                    <span id="buttonlightViewMobile" class="ButtonViewOff">
+                        <i class="iconify-inline " data-icon="ph:sun"></i>
+                    </span>
+                    <span id="buttonDarkViewMobile" class="ButtonDarkView">
+                        <i class="iconify-inline " data-icon="ph:moon"></i>
+                    </span>
+                </button>
             </span>
         </div>
     </div>
 
     <header class="header">
-        <button id="openModal" class="buttonNavBar" type="submit" onclick="openNavBar()">
-            <svg width="40" height="17" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#00001A" fill-rule="evenodd">
-                    <path d="M0 0h40v3H0zM0 7h40v3H0zM0 14h40v3H0z" />
-                    <path d="M0 0h40v3H0z" />
-                </g>
-            </svg>
+        <button id="openModal" class="buttonNavBar" type="submit">
+            <img src="./image/icon/icon-menu.svg" alt="menu">
         </button>
 
-        <div class="containerMenu">
-            <div class="buttonNavgation">
-                <a href="#Door" class="navgationLink">Двери</a>
+        <div class="headerContainer">
+            <div class="containerMenu">
+                <div class="buttonNavgation">
+                    <a href="#Door" class="navgationLink">Двери</a>
+                </div>
+
+                <div class="buttonNavgation">
+                    <a href="#Lamp" class="navgationLink">Люстры</a>
+                </div>
+
+                <div class="buttonNavgation">
+                    <a href="#Vase" class="navgationLink">Вазы</a>
+                </div>
             </div>
 
-            <div class="buttonNavgation">
-                <a href="#Lamp" class="navgationLink">Люстры</a>
-            </div>
-
-            <div class="buttonNavgation">
-                <a href="#Vase" class="navgationLink">Вазы</a>
-            </div>
+            <button id="buttomDarkLightView" class="buttomDarkLightView" data-color="white">
+                <span id="buttonlightView" class="ButtonViewOff">
+                    <i class="iconify-inline " data-icon="ph:sun"></i>
+                </span>
+                <span id="buttonDarkView" class="ButtonDarkView">
+                    <i class="iconify-inline " data-icon="ph:moon"></i>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -74,8 +86,7 @@
             <div class="nameBlock">
                 <div id="Lamp" style="border-bottom: 55px solid transparent;"></div>
                 <h1>Люстры</h1>
-                <div id="containerForCardsLamps" class="cardsGrid">
-                </div>
+                <div id="containerForCardsLamps" class="cardsGrid"></div>
             </div>
         </div>
 
@@ -88,61 +99,53 @@
         </div>
 
 
-        <div id="modalBuyWindow" class="modalBuyWindowClose">
-            <div class="modalBuyWindowContent">
-                <div class="modalBuyWindowForm">
-                    <form>
-                        <legend><b>Количество:</b></legend>
-                        <input type="number" step="1" min="1" max="100" value="1" />
-
-                    </form>
-                </div>
-                <div class="modalBuyWindowForm">
-                    <form>
-                        <fieldset class="radioFormContainer" style=" border: none;">
-                            <legend><b>Выберете цвет</b></legend>
-                            <label><input class="radioForm" type="radio" name="color" value="white"> Белый</label>
-                            <label><input class="radioForm" type="radio" name="color" value="grey"> Серый</label>
-                            <label><input class="radioForm" type="radio" name="color" value="bkack"> Черный</label>
-                            <label><input class="radioForm" type="radio" name="color" value="colored"> Цветной</label>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="modalBuyWindowForm">
-                    <form>
-                        <p><b>Комментарий:</b></p>
-                        <p><textarea class="textareaStyle" maxlength="2000" name="text"></textarea></p>
-                    </form>
-                </div>
-                <div class="modalBuyWindowForm">
-                    <button id="buttonModalWindowBuy" class="buttonModalWindow" type="submit">Отправить</button>
-                    <button id="buttonModalWindowClose" class="buttonModalWindow">Закрыть</button>
-                </div>
-            </div>
-        </div>
-
 
         <div class="buttonUpPage">
             <a class="buttonStartPageText" href="#StartPage">
-                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(270deg);" width="24" height="24"
-                    viewBox="0 0 24 24">
-                    <path fill="#ffffff" d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-                </svg>
+                <img src="./image/icon/up-circle-svgrepo-com.svg">
             </a>
         </div>
+    </div>
 
-        <footer class="footer">
-            <div>
-                <a href="#Door" class="navgationLink">Двери</a>
-                <a href="#Lamp" class="navgationLink">Люстры</a>
-                <a href="#Vase" class="navgationLink">Вазы</a>
+    <div id="modalBuyWindow" class="modalBuyWindowClose">
+        <div class="modalBuyWindowContent">
+            <form id="myForm" class="modalBuyWindowForm">
+                <legend><b>Количество:</b>
+                    <input name="count" type="number" step="1" min="1" max="100" value="1" />
+                </legend>
+                <fieldset class="radioFormContainer">
+                    <legend><b>Выберете цвет</b></legend>
+                    <label><input class="radioForm" type="radio" name="color" value="white"> Белый</label>
+                    <label><input class="radioForm" type="radio" name="color" value="grey"> Серый</label>
+                    <label><input class="radioForm" type="radio" name="color" value="black"> Черный</label>
+                    <label><input class="radioForm" type="radio" name="color" value="colored"> Цветной</label>
+                </fieldset>
+
+                <p><b>Комментарий:</b></p>
+                <p><textarea class="textareaStyle" maxlength="2000" name="text"></textarea></p>
+
+                <button class="buttonModalWindow" type="submit">Отправить</button>
+
+            </form>
+            <div class="modalBuyWindowForm">
+                <button id="buttonModalWindowClose" class="buttonModalWindow">Закрыть</button>
             </div>
 
-            <p class="footerText">Анастасия Канева</p>
-            <p class="footerText">2023</p>
-        </footer>
+        </div>
+    </div>
 
-        <script src="main.js"></script>
+    <footer class="footer">
+        <div>
+            <a href="#Door" class="navgationLink">Двери</a>
+            <a href="#Lamp" class="navgationLink">Люстры</a>
+            <a href="#Vase" class="navgationLink">Вазы</a>
+        </div>
+
+        <p class="footerText">Анастасия Канева</p>
+        <p class="footerText">2023</p>
+    </footer>
+    <script src="constants.js" type="module"></script>
+    <script src="main.js" type="module"></script>
 </body>
 
 </html>
